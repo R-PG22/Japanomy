@@ -1,0 +1,13 @@
+/home/r-pg/Projects/JapanomyApp/bin/Debug/net10.0/Assets/jmdict.db
+/home/r-pg/Projects/JapanomyApp/bin/Debug/net10.0/JapanomyApp.deps.json
+/home/r-pg/Projects/JapanomyApp/bin/Debug/net10.0/JapanomyApp.dll
+/home/r-pg/Projects/JapanomyApp/bin/Debug/net10.0/JapanomyApp.pdb
+/home/r-pg/Projects/JapanomyApp/obj/Debug/net10.0/JapanomyApp.csproj.AssemblyReference.cache
+/home/r-pg/Projects/JapanomyApp/obj/Debug/net10.0/Avalonia/Resources.Inputs.cache
+/home/r-pg/Projects/JapanomyApp/obj/Debug/net10.0/Avalonia/resources
+/home/r-pg/Projects/JapanomyApp/obj/Debug/net10.0/JapanomyApp.GeneratedMSBuildEditorConfig.editorconfig
+/home/r-pg/Projects/JapanomyApp/obj/Debug/net10.0/JapanomyApp.csproj.CoreCompileInputs.cache
+/home/r-pg/Projects/JapanomyApp/obj/Debug/net10.0/JapanomyApp.dll
+/home/r-pg/Projects/JapanomyApp/obj/Debug/net10.0/refint/JapanomyApp.dll
+/home/r-pg/Projects/JapanomyApp/obj/Debug/net10.0/JapanomyApp.pdb
+/home/r-pg/Projects/JapanomyApp/obj/Debug/net10.0/ref/JapanomyApp.dll

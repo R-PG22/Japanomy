@@ -1,0 +1,126 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:JapanomyApp.ViewModels"
+        x:Class="JapanomyApp.Views.MainWindow"
+        x:DataType="vm:MainViewModel"
+        Title="Japanomy - 日本語検索ツール" Width="720" Height="640">
+
+    <Window.Styles>
+        <Style Selector="Button.action-btn">
+            <Setter Property="Background" Value="#444444"/>
+            <Setter Property="Foreground" Value="White"/>
+        </Style>
+        <Style Selector="Button.action-btn:pointerover /template/ ContentPresenter">
+            <Setter Property="Background" Value="#666666"/>
+            <Setter Property="TextBlock.Foreground" Value="White"/>
+        </Style>
+        <Style Selector="Button.action-btn:pressed /template/ ContentPresenter">
+            <Setter Property="Background" Value="#222222"/>
+            <Setter Property="TextBlock.Foreground" Value="White"/>
+        </Style>
+    </Window.Styles>
+
+    <Grid RowDefinitions="Auto, Auto, Auto, Auto, *, Auto, Auto" Margin="20">
+        <TextBlock Grid.Row="0" Text="Japanomy 日本語検索" FontSize="18" FontWeight="Bold" Margin="0,0,0,10"/>
+
+        <!-- 検索モード選択 -->
+        <StackPanel Grid.Row="1" Orientation="Horizontal" Spacing="15" Margin="0,0,0,10">
+            <TextBlock Text="検索対象:" VerticalAlignment="Center" FontWeight="Bold"/>
+            <RadioButton Content="読み（母音・ローマ字）" IsChecked="{Binding IsReadingSearch, Mode=OneWay}" GroupName="SearchType" Command="{Binding $parent[Window].DataContext.ExecuteSearchAsync}" Click="OnReadingSearchSelected"/>
+            <RadioButton Content="漢字表記" IsChecked="{Binding IsKanjiSearch, Mode=OneWay}" GroupName="SearchType" Click="OnKanjiSearchSelected"/>
+        </StackPanel>
+
+        <!-- 検索入力エリア -->
+        <Grid Grid.Row="2" ColumnDefinitions="*, 130, Auto">
+            <TextBox Grid.Column="0" 
+                     Text="{Binding SearchPattern}" 
+                     PlaceholderText="検索キーワード (例: kan*j*, 愛...)" />
+            
+            <ComboBox Grid.Column="1" 
+                      ItemsSource="{Binding MatchModes}" 
+                      SelectedIndex="{Binding SelectedMatchModeIndex}" 
+                      Margin="8,0,0,0" 
+                      HorizontalAlignment="Stretch" />
+                      
+            <Button Grid.Column="2" 
+                    Content="検索" 
+                    Command="{Binding ExecuteSearchAsync}" 
+                    Margin="8,0,0,0" />
+        </Grid>
+
+        <!-- オプション設定（読み検索用） -->
+        <StackPanel Grid.Row="3" Orientation="Horizontal" Spacing="20" Margin="0,10,0,10" IsVisible="{Binding IsReadingSearch}">
+            <CheckBox Content="「ん」を除外して検索" IsChecked="{Binding IgnoreN}" />
+            <CheckBox Content="伸ばし棒(ー)を除外して検索" IsChecked="{Binding IgnoreChoon}" />
+        </StackPanel>
+
+        <!-- オプション設定（漢字検索用） -->
+        <StackPanel Grid.Row="3" Orientation="Horizontal" Spacing="20" Margin="0,10,0,10" IsVisible="{Binding IsKanjiSearch}">
+            <CheckBox Content="純粋な漢字表記のみ（ひらがな入りを除外）" IsChecked="{Binding ExactKanjiOnly}" />
+        </StackPanel>
+
+        <!-- 検索結果リスト表示 -->
+        <Grid Grid.Row="4" RowDefinitions="Auto, *">
+            <Grid Grid.Row="0" ColumnDefinitions="120, 120, 120, *" Margin="0,0,0,5">
+                <TextBlock Grid.Column="0" Text="読み (ひらがな)" FontWeight="Bold" Foreground="Gray"/>
+                <TextBlock Grid.Column="1" Text="漢字表記" FontWeight="Bold" Foreground="Gray"/>
+                <TextBlock Grid.Column="2" Text="ローマ字" FontWeight="Bold" Foreground="Gray"/>
+                <TextBlock Grid.Column="3" Text="母音" FontWeight="Bold" Foreground="Gray"/>
+            </Grid>
+
+            <ListBox Grid.Row="1" 
+                     ItemsSource="{Binding SearchResults}" 
+                     SelectedItem="{Binding SelectedItem}">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <Grid ColumnDefinitions="120, 120, 120, *">
+                            <TextBlock Grid.Column="0" Text="{Binding Reading}" FontWeight="Bold" />
+                            <TextBlock Grid.Column="1" Text="{Binding Kanji}" Foreground="DarkGreen" FontWeight="Bold" />
+                            <TextBlock Grid.Column="2" Text="{Binding Romaji}" Foreground="DarkGray" />
+                            <TextBlock Grid.Column="3" Text="{Binding Vowels}" Foreground="SteelBlue" />
+                        </Grid>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+        </Grid>
+
+        <!-- 選択アイテムの詳細（意味）表示エリア -->
+        <Border Grid.Row="5" 
+                Background="#EFEFEF" 
+                BorderBrush="#CCC" 
+                BorderThickness="1" 
+                CornerRadius="5" 
+                Padding="15" 
+                Margin="0,10,0,0">
+            <Grid ColumnDefinitions="*, Auto">
+                <StackPanel Grid.Column="0" Spacing="8">
+                    <StackPanel Orientation="Horizontal" Spacing="15">
+                        <TextBlock Text="意味:" Foreground="#555555" Width="50" FontWeight="Bold" VerticalAlignment="Top" />
+                        <TextBlock Text="{Binding SelectedSense}" Foreground="#111111" TextWrapping="Wrap" MaxWidth="450" />
+                    </StackPanel>
+                </StackPanel>
+
+                <!-- コピーボタン群 -->
+                <StackPanel Grid.Column="1" Spacing="8" VerticalAlignment="Center">
+                    <Button Classes="action-btn"
+                            Content="漢字のみコピー" 
+                            Command="{Binding CopyKanjiToClipboardAsync}" 
+                            FontSize="12" 
+                            Padding="8,4" />
+                    
+                    <Button Classes="action-btn"
+                            Content="全体をコピー" 
+                            Command="{Binding CopyToClipboardAsync}" 
+                            FontSize="12"
+                            Padding="8,4" />
+                </StackPanel>
+            </Grid>
+        </Border>
+
+        <!-- ステータスバー -->
+        <TextBlock Grid.Row="6" 
+                   Text="{Binding StatusMessage}" 
+                   Foreground="DimGray" 
+                   Margin="0,8,0,0" />
+    </Grid>
+</Window>
