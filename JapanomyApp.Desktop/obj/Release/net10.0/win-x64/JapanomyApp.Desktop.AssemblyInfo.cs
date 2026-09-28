@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("JapanomyApp.Desktop")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+116a5dc5f08dbfba387c844dd4309ef15144267a")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+fb5afef99e304a28d946cee687f631016c80b16d")]
 [assembly: System.Reflection.AssemblyProductAttribute("JapanomyApp.Desktop")]
 [assembly: System.Reflection.AssemblyTitleAttribute("JapanomyApp.Desktop")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
