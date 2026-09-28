@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "/I71Ae4myQk=",
+  "dgSpecHash": "tcbhCQN44JY=",
   "success": true,
   "projectFilePath": "/home/r-pg/Projects/JapanomyApp/JapanomyApp.csproj",
   "expectedPackageFiles": [
@@ -16,7 +16,9 @@
     "/home/r-pg/.nuget/packages/sqlitepclraw.bundle_green/2.1.11/sqlitepclraw.bundle_green.2.1.11.nupkg.sha512",
     "/home/r-pg/.nuget/packages/sqlitepclraw.core/3.0.3/sqlitepclraw.core.3.0.3.nupkg.sha512",
     "/home/r-pg/.nuget/packages/sqlitepclraw.lib.e_sqlite3/2.1.11/sqlitepclraw.lib.e_sqlite3.2.1.11.nupkg.sha512",
-    "/home/r-pg/.nuget/packages/sqlitepclraw.provider.e_sqlite3/3.0.3/sqlitepclraw.provider.e_sqlite3.3.0.3.nupkg.sha512"
+    "/home/r-pg/.nuget/packages/sqlitepclraw.provider.e_sqlite3/3.0.3/sqlitepclraw.provider.e_sqlite3.3.0.3.nupkg.sha512",
+    "/home/r-pg/.nuget/packages/microsoft.netcore.app.runtime.win-x64/10.0.11/microsoft.netcore.app.runtime.win-x64.10.0.11.nupkg.sha512",
+    "/home/r-pg/.nuget/packages/microsoft.aspnetcore.app.runtime.win-x64/10.0.11/microsoft.aspnetcore.app.runtime.win-x64.10.0.11.nupkg.sha512"
   ],
   "logs": [
     {
@@ -28,7 +30,8 @@
       "filePath": "/home/r-pg/Projects/JapanomyApp/JapanomyApp.csproj",
       "libraryId": "SQLitePCLRaw.lib.e_sqlite3",
       "targetGraphs": [
-        "net10.0"
+        "net10.0",
+        "net10.0/win-x64"
       ]
     }
   ]
