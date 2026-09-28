@@ -137,3 +137,4 @@
 /home/r-pg/Projects/JapanomyApp/JapanomyApp.Desktop/obj/Debug/net10.0/JapanomyApp.Desktop.pdb
 /home/r-pg/Projects/JapanomyApp/JapanomyApp.Desktop/obj/Debug/net10.0/JapanomyApp.Desktop.genruntimeconfig.cache
 /home/r-pg/Projects/JapanomyApp/JapanomyApp.Desktop/obj/Debug/net10.0/ref/JapanomyApp.Desktop.dll
+/home/r-pg/Projects/JapanomyApp/JapanomyApp.Desktop/obj/Debug/net10.0/JapanomyApp.Desktop.sourcelink.json

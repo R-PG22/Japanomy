@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("JapanomyApp.Android")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0+c281e6e6b508c251580a97620ff77f8e33869885")]
 [assembly: System.Reflection.AssemblyProductAttribute("JapanomyApp.Android")]
 [assembly: System.Reflection.AssemblyTitleAttribute("JapanomyApp.Android")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -34,7 +34,7 @@
         <Grid Grid.Row="2" ColumnDefinitions="*, 130, Auto">
             <TextBox Grid.Column="0" 
                      Text="{Binding SearchPattern}" 
-                     PlaceholderText="検索キーワード (例: kan*j*, 愛...)" />
+                     PlaceholderText="検索キーワード (・/?: 1文字、* / ＊: 任意の長さ)" />
             
             <ComboBox Grid.Column="1" 
                       ItemsSource="{Binding MatchModes}" 

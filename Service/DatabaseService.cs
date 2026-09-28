@@ -66,7 +66,8 @@ public class DatabaseService
             return new List<ReadingItem>();
 
         string processed = pattern.Replace("nn", "n");
-        processed = processed.Replace("・", "_").Replace("*", "%");
+        processed = processed.Replace("・", "_").Replace("?", "_")
+            .Replace("*", "%").Replace("＊", "%");
 
         string cleanPattern = processed.Replace("_", "").Replace("%", "");
         bool isVowelOnly = !string.IsNullOrEmpty(cleanPattern) && Regex.IsMatch(cleanPattern, @"^[aiueo]+$");
@@ -124,8 +125,9 @@ public class DatabaseService
         if (string.IsNullOrWhiteSpace(pattern))
             return new List<ReadingItem>();
 
-        // ・ を _ (任意の1文字)、* を % (任意の0文字以上) に置換
-        string processed = pattern.Replace("・", "_").Replace("*", "%");
+        // ・ と ? を _ (任意の1文字)、* と ＊ を % (任意の0文字以上) に置換
+        string processed = pattern.Replace("・", "_").Replace("?", "_")
+            .Replace("*", "%").Replace("＊", "%");
 
         string sqlPattern = options.Mode switch
         {

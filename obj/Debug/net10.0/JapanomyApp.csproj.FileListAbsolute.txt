@@ -11,3 +11,4 @@
 /home/r-pg/Projects/JapanomyApp/obj/Debug/net10.0/refint/JapanomyApp.dll
 /home/r-pg/Projects/JapanomyApp/obj/Debug/net10.0/JapanomyApp.pdb
 /home/r-pg/Projects/JapanomyApp/obj/Debug/net10.0/ref/JapanomyApp.dll
+/home/r-pg/Projects/JapanomyApp/obj/Debug/net10.0/JapanomyApp.sourcelink.json
